@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slideshow Pixel Art - EcoVerse</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    /* ===== FONT RETRO PIXEL ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background-image: url('img/beranda1.png'); /* ← Ganti dengan gambar kamu */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #1a3e2a;
+    }
+        header {
+      background: rgba(240, 255, 240, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 3px solid #1a3e2a;
+    }
+
+    .logo {
+      font-size: 18px;
+      color: #1a3e2a;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a3e2a;
+      margin: 0 15px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #2e8b57;
+    }
+
+    .join-btn {
+      background: #2e8b57;
+      color: #fff;
+      padding: 10px 20px;
+      border: 3px solid #1a3e2a;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .join-btn:hover {
+      background: #3fbf78;
+    }
+
+    /* ===== SLIDESHOW WRAPPER ===== */
+    .slideshow-container {
+      position: relative;
+      max-width: 1000px;
+      width: 90%;
+      border: 4px solid #00ffcc;
+      box-shadow: 0 0 25px #00ffcc;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .slide {
+      display: none;
+      animation: fadeEffect 1s ease-in-out;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 450px;
+      object-fit: fill;
+      border-bottom: 3px solid #00ffcc;
+    }
+
+    /* ===== TOMBOL NAVIGASI ===== */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      font-size: 20px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background: #00ffcc;
+      color: #001f15;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* ===== TITIK INDIKATOR ===== */
+    .dots {
+      text-align: center;
+      padding: 15px 0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 6px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 2px solid #00ffcc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background-color: #00ffcc;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    /* Bungkus seluruh slideshow di tengah halaman */
+main {
+  display: flex;
+  justify-content: center;   /* Pusat horizontal */
+  align-items: center;       /* Pusat vertikal */
+  height: calc(190vh - 120px); /* Sesuaikan tinggi agar tidak menutupi header */
+}
+
+/* Biar slideshow tetap di tengah saat layar kecil */
+@media (max-width: 768px) {
+  main {
+    height: auto;
+    padding: 40px 0;
+  }
+}
+
+    /* ===== EFEK FADE ===== */
+    @keyframes fadeEffect {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+
+    /* RESPONSIF */
+    @media (max-width: 600px) {
+      .slide img {
+        height: 250px;
+      }
+      .prev, .next {
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">🌿 EcoVerse</div>
+        <nav>
+            <a href="beranda.html">Home</a>
+            <a href="testing.html">Challenge</a>
+            <a href="community.html">Community</a>
+            <a href="#">Showcase</a>
+        </nav>
+        <a href="profile.html"><button class="join-btn">Profile tim</button></a>
+    </header>
+    
+    <main>
+    <div class="slideshow-container">
+        <!-- Gambar 1 -->
+        <div class="slide">
+            <img src="img/panelsurya.png" alt="Energi Surya">
+        </div>
+        
+        <!-- Gambar 2 -->
+        <div class="slide">
+            <img src="img/panelsurya1.png" alt="Turbin Angin">
+        </div>
+        
+        <!-- Gambar 3 -->
+        <div class="slide">
+            <img src="img/beranda3.png" alt="Energi Air">
+        </div>
+        
+        <!-- Tombol Navigasi -->
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        
+        <!-- Titik Indikator -->
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    
+    
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            
+            for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+    
+    // Auto-slide setiap 4 detik
+    // setInterval(() => {
+        //   plusSlides(1);
+        // }, 4000);
+        </script>
+</main>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoVerse Pixel</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    /* ===== FONT PIXEL ===== */
+    @import url('http://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      color: #1a3e2a;
+      background-image: url('img/beranda1.png'); /* ← Ganti dengan gambar kamu */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    
+    }
+
+    header {
+      background: rgba(240, 255, 240, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 3px solid #1a3e2a;
+    }
+
+    .logo {
+      font-size: 18px;
+      color: #1a3e2a;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a3e2a;
+      margin: 0 15px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #2e8b57;
+    }
+
+    .join-btn {
+      background: #2e8b57;
+      color: #fff;
+      padding: 10px 20px;
+      border: 3px solid #1a3e2a;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .join-btn:hover {
+      background: #3fbf78;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+
+    }
+
+    .hero h1 {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background: #2e8b57;
+      color: #fff;
+      border: 3px solid #1a3e2a;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .hero button:hover {
+      background: #3fbf78;
+    }
+
+    /* ===== FEATURE BOXES ===== */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 60px 20px;
+
+
+    }
+
+    .feature-box {
+      width: 250px;
+      background: #f0fff0;
+      border: 3px solid #1a3e2a;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 3px 3px 0 #1a3e2a;
+    }
+
+    .feature-text {
+      width: 500px;
+      background: rgba(240, 255, 240, 0.85);
+      border: 3px solid #1a3e2a;
+      text-align: center;
+      padding: 40px;
+      box-shadow: 3px 3px 0 #1a3e2a;
+    }
+
+    .feature-box img {
+      width: 48px;
+      margin-bottom: 15px;
+      image-rendering: pixelated;
+    }
+
+    .feature-box h3 {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .feature-box p {
+      font-size: 8px;
+      color: #2e8b57;
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 60px 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h2 {
+      font-size: 16px;
+      color: #1a3e2a;
+    }
+
+    .stat p {
+      font-size: 8px;
+      color: #2e8b57;
+      margin-top: 5px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: rgba(240, 255, 240, 0.85);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 40px;
+      border-top: 3px solid #1a3e2a;
+      font-size: 8px;
+    }
+
+    footer h3 {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #1a3e2a;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer a:hover {
+      color: #2e8b57;
+    }
+    
+    .stroke-text {
+    color: white;
+    text-shadow:
+        -2px -2px 0 black,
+        2px -2px 0 black,
+        -2px  2px 0 black,
+        2px  2px 0 black;
+    font-size: 40px;
+    font-weight: bold;
+    }
+
+
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .features, .stats {
+        flex-direction: column;
+      }
+      .hero h1 {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🌿 EcoVerse</div>
+    <nav>
+      <a href="beranda.html">Home</a>
+      <a href="test.html">Challenge</a>
+      <a href="community.html">Community</a>
+      <a href="#">Showcase</a>
+    </nav>
+    <a href="profile.html"><button class="join-btn">Profile tim</button></a>
+  </header>
+
+  <section class="hero features">
+    <div class="feature-text">
+      <h1 class="">Shaping a Better Future<br>with Digital Design<br>and Sustainable Innovation<br><img src="img/bumi.png" alt="" width="15%"></h1>
+      <button>Join the Green Challenge</button>
+    </div>  
+  </section>
+
+  <section class="features">
+    <div class="feature-box">
+      <img src="img/leaf.png" alt="">
+      <h3>Green Challenge</h3>
+      <p>Join weekly sustainability challenges</p>
+    </div>
+
+    <div class="feature-box">
+      <img src="img/plant.png" alt="">
+      <h3>Eco Innovation Hub</h3>
+      <p>Articles and videos on green tech</p>
+    </div>
+
+    <div class="feature-box">
+      <img src="img/monitor.png" alt="">
+      <h3>Design Showcase</h3>
+      <p>Discover eco-friendly designs</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="feature-box">
+      <h2>10.000+</h2>
+      <p>Ide Berkelanjutan Dibagikan</p>
+    </div>
+
+    <div class="feature-box">
+      <h2>500+</h2>
+      <p>Desainer Digital Bergabung</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <h3>🌿 EcoVerse</h3>
+    </div>
+    <div>
+      <h3>Social</h3>
+      <a href="#">Instagram</a>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </footer>
+
+</body>
+</html>

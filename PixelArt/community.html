@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVerse Community Hub</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* ===== FONT PIXEL ===== */
+        @import url('http://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        /* ===== RESET (Dari Kode Sebelumnya) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      color: #1a3e2a;
+      background-image: url('img/beranda1.png'); /* ← Ganti dengan gambar kamu */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: rgba(240, 255, 240, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 3px solid #1a3e2a;
+    }
+
+        .logo {
+            font-size: 18px;
+            color: #1a3e2a;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a3e2a;
+            margin: 0 15px;
+            transition: 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active { /* Tambahkan kelas active untuk menandai halaman saat ini */
+            color: #2e8b57;
+        }
+
+        .join-btn {
+            background: #2e8b57;
+            color: #fff;
+            padding: 10px 20px;
+            border: 3px solid #1a3e2a;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .join-btn:hover {
+            background: #3fbf78;
+        }
+
+        /* ===== CSS BARU UNTUK HALAMAN COMMUNITY ===== */
+        
+        /* Banner Komunitas */
+        .community-banner {
+            /* Menggunakan gambar dari foto yang Anda berikan */
+
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .banner-title {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px 30px;
+            border: 3px solid #1a3e2a;
+            font-size: 14px;
+            box-shadow: 4px 4px 0 #2e8b57;
+        }
+
+        /* Konten Utama (3 Kolom) */
+        .community-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr; /* 3 Kolom: Kiri kecil, Tengah besar, Kanan kecil */
+            gap: 20px;
+            padding: 0 40px 40px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .column {
+            background: #e4f5e0; /* Background Hijau Muda */
+            padding: 15px;
+            border: 3px solid #1a3e2a;
+            box-shadow: 4px 4px 0 #a0f0a0; /* Bayangan ala pixel art */
+        }
+
+        .column h3 {
+            font-size: 12px;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #2e8b57;
+            margin-bottom: 15px;
+        }
+
+        /* --- Diskusi Terbaru --- */
+        .discussion-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        
+        .discussion-item:hover {
+            background-color: #d0edd0;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            border: 2px solid #1a3e2a;
+            background-color: #ccc; /* Placeholder untuk avatar */
+            image-rendering: pixelated;
+        }
+
+        .info .title {
+            font-size: 10px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .info .details {
+            font-size: 8px;
+            color: #2e8b57;
+            margin: 0;
+        }
+        
+        .reply-count {
+            margin-left: auto;
+            font-size: 10px;
+            font-weight: bold;
+            color: #1a3e2a;
+            border: 1px solid #1a3e2a;
+            padding: 3px 5px;
+            background-color: #a0f0a0;
+        }
+
+        /* --- Proyek Unggulan --- */
+        .project-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            width: calc(33.33% - 7px);
+            text-align: center;
+            border: 2px solid #1a3e2a;
+            background-color: #fff;
+            padding: 5px;
+            box-shadow: 2px 2px 0 #a0f0a0;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 5px;
+            image-rendering: pixelated;
+        }
+
+        .project-card p {
+            font-size: 8px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .start-discussion-btn {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            background: #2e8b57;
+            color: #fff;
+            border: 3px solid #1a3e2a;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 10px;
+            box-shadow: 3px 3px 0 #1a3e2a;
+        }
+
+        /* --- Sorotan Anggota --- */
+        .member-spotlight {
+            text-align: center;
+        }
+
+        .member-card {
+            padding: 10px;
+            border: 2px solid #1a3e2a;
+            background-color: #fff;
+        }
+
+        .big-avatar {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #2e8b57;
+            background-color: #ccc; /* Placeholder */
+            margin-bottom: 10px;
+            image-rendering: pixelated;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .member-card h4 {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .member-card p {
+            font-size: 8px;
+            color: #d32f2f;
+            margin: 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .community-content {
+                grid-template-columns: 1fr; /* Ubah menjadi satu kolom pada layar kecil */
+                padding: 20px;
+            }
+            .project-card {
+                width: calc(50% - 5px); /* Dua proyek per baris pada tablet */
+            }
+        }
+        @media (max-width: 576px) {
+             .project-card {
+                width: 100%; /* Satu proyek per baris pada ponsel */
+            }
+        }
+    </style>
+</head>
+  <header>
+    <div class="logo">🌿 EcoVerse</div>
+    <nav>
+      <a href="beranda.html">Home</a>
+      <a href="#">Challenge</a>
+      <a href="community.html">Community</a>
+      <a href="#">Showcase</a>
+    </nav>
+    <a href="profile.html"><button class="join-btn">Profile tim</button></a>
+  </header>
+
+<body>
+    <section class="community-banner">
+        <div class="banner-title">
+            EcoVerse Community Hub
+        </div>
+    </section>
+
+    <main class="community-content">
+        <div class="column latest-discussions">
+            <h3>Latest Discussions</h3>
+            <div class="discussion-item">
+                <img src="p1.png" alt="Avatar" class="avatar">
+                <div class="info">
+                    <p class="title">Green Design Ideas</p>
+                    <p class="details">15 replies</p>
+                </div>
+                <span class="reply-count">65</span>
+            </div>
+            <div class="discussion-item">
+                <img src="p2.png" alt="Avatar" class="avatar">
+                <div class="info">
+                    <p class="title">Share Your Eco-Art!</p>
+                    <p class="details">298 replies</p>
+                </div>
+                <span class="reply-count">298</span>
+            </div>
+             <div class="discussion-item">
+                <img src="p3.png" alt="Avatar" class="avatar">
+                <div class="info">
+                    <p class="title">Natst Sawlow</p>
+                    <p class="details">22.3 Ribu replies</p>
+                </div>
+                <span class="reply-count">335</span>
+            </div>
+             <div class="discussion-item">
+                <img src="avatar4.png" alt="Avatar" class="avatar">
+                <div class="info">
+                    <p class="title">Site YILS Needs</p>
+                    <p class="details">335 replies</p>
+                </div>
+                <span class="reply-count">335</span>
+            </div>
+            </div>
+
+        <div class="column featured-projects">
+            <h3>Featured Projects</h3>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="project1.png" alt="Solar Powered Home">
+                    <p>Solar-Powered Home</p>
+                </div>
+                <div class="project-card">
+                    <img src="project2.png" alt="Recycled Robot">
+                    <p>Recycled Robot</p>
+                </div>
+                <div class="project-card">
+                    <img src="project3.png" alt="Vertical Robot Garden">
+                    <p>Vertical Robot Garden</p>
+                </div>
+            </div>
+            <button class="start-discussion-btn">Start a New Discussion</button>
+        </div>
+
+        <div class="column member-spotlight">
+            <h3>Member Spotlight</h3>
+            <div class="member-card">
+                <img src="member-avatar.png" alt="PixelGardener" class="big-avatar">
+                <h4>PixelGardener</h4>
+                <p>Awarded "Eco-Innovator" badge!</p>
+            </div>
+        </div>
+    </main>
+    </body>
+</html>
